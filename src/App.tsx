@@ -1,26 +1,51 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import {QueryClient,QueryClientProvider} from "@tanstack/react-query"
+import { ThemeProvider } from 'styled-components';
+import * as S from "./collections/sections/HeaderSection"
+import { theme } from './styles';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path='/' element={<S.HeaderSection/>}/>
+        </Routes>
+      </Router>
+      
     </div>
   );
 }
-
 export default App;
+
+// export default App;
+
+// import React from "react";
+// import "./App.css";
+// import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+// import Main from "./pages/Main/Main";
+// import Login from "./pages/Login";
+// import Navbar from "./component/Navbar";
+// import CreatePost from "./pages/create-post/CreatePost";
+// import {QueryClient,QueryClientProvider} from "@tanstack/react-query"
+
+// const queryClient = new QueryClient()
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <Router>
+//           <QueryClientProvider client={queryClient}>
+//         <Navbar />
+//         <Routes>
+//           <Route path="/" element={<Main />} />
+//           <Route path="/login" element={<Login />} />
+//           <Route path="/createpost" element={<CreatePost />} />
+//         </Routes>
+//         </QueryClientProvider>
+//       </Router>
+//     </div>
+//   );
+// }
+
+// export default App;
